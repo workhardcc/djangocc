@@ -10,13 +10,13 @@ admin.autodiscover()
 from books.models import Publisher,Book
 from django.views.generic import list_detail
 from django.conf.urls.defaults import *
-#from django.contrib.auth.views 
+#from django.contrib.auth.views
 from django.views.decorators.cache import cache_page
 publisher_info={ 'queryset': Publisher.objects.all(), 'template_name': 'publisher_list_page.html','template_object_name':'publisher','extra_context': {'book_list':Book.objects.all}}
 book_info={'queryset': Book.objects.order_by('id'),'template_name':'book.html',}
 urlpatterns = patterns('',
 #    ('^$', hello),
-    (r'^time/$', nowtime),
+#    (r'^time/$', nowtime),
     (r'^time/plus/(\d{1,2})/$', hours_ahead),
     (r'^time/birthday/$',hours_ahead,{'a':1}),
     (r'^current_date/$',current_date),
